@@ -14,9 +14,8 @@
 
   
 
-float sensorValue;
-float averageValue;
-float VoltagePercentage;
+//float sensorValue;
+int VoltagePercentage;
 int voltageWet = 880;
 int voltageDry = 940;
 int i = 1;
@@ -37,6 +36,7 @@ void loop()
 {
   
 sval = 0;
+VoltagePercentage = 0;
 //https://www.arduino.cc/en/Reference/FunctionDeclaration
   for (s = 0; s < 5; s++){
     sval = sval + analogRead(A0);    // sensor on analog pin 0
@@ -55,7 +55,9 @@ sval = 0;
   Serial.print(VoltagePercentage);
   Serial.print("%  count:");
    Serial.print(i);
+   Serial.print("   ");
      Serial.print(svalAverage-voltageWet);
+     Serial.print("   ");
      Serial.print(voltageDry-voltageWet);
    Serial.print("\n");
   delay(200); 
